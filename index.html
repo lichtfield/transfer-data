@@ -5,20 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TransferData</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #0a0c10; color: #fff; }
-    h1 { color: #00d4aa; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0c10;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100vh;
+      border: none;
+    }
+    .loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #00d4aa;
+      font-size: 18px;
+      z-index: 10;
+    }
   </style>
 </head>
 <body>
-  <h1>TransferData</h1>
-  <p>Sedang mengarahkan ke aplikasi...</p>
 
-  <script>
-    // GANTI DENGAN URL WEB APP KAMU
-    const webAppUrl = "https://script.google.com/macros/s/AKfycbxa-UwvZ52l5z2ZygKd_d7tEv5uIZwv5li1P-jjOXOfHnXCuhcWJTVj4_gq2p_EJpbuZA/exec";
+  <div class="loading" id="loading">Memuat aplikasi...</div>
 
-    // Redirect otomatis
-    window.location.replace(webAppUrl);
-  </script>
+  <!-- GANTI DENGAN URL WEB APP KAMU -->
+  <iframe src="https://script.google.com/macros/s/AKfycbxa-UwvZ52l5z2ZygKd_d7tEv5uIZwv5li1P-jjOXOfHnXCuhcWJTVj4_gq2p_EJpbuZA/exec" 
+          onload="document.getElementById('loading').style.display='none';">
+  </iframe>
+
 </body>
 </html>
