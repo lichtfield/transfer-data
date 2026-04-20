@@ -2,21 +2,32 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tambahkan viewport-fit=cover untuk layar HP dengan notch/poni -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>TransferData</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
       background: #0a0c10;
       font-family: 'DM Sans', system-ui, sans-serif;
-      height: 100vh;
+      /* KUNCI MASALAHNYA DI SINI: Jangan gunakan 100vh */
+      /* Gunakan fixed dan inset: 0 agar layar benar-benar terkunci */
+      position: fixed;
+      inset: 0;
       overflow: hidden;
     }
+    
     iframe {
+      /* Gunakan absolute untuk memenuhi area body secara presisi */
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       border: none;
     }
+    
     .loading {
       position: fixed;
       top: 50%;
